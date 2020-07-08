@@ -1,0 +1,499 @@
+﻿<p />
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-user"></i>
+            <span>Customer Profile</span>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>ISP Management</span>
+        </li>
+    </ul>
+</div>
+<p />
+<div block-ui="saOrReviewSaveBlock">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box green-noheader">
+                <div class="portlet-title sbold" style="background-color: #36c6d3;">
+                    <div class="caption no-outline">
+                        <i class="fa fa-user" style="font-size: 20px; color:white"></i>Customer Profile
+                    </div>
+                    <!--<div class="actions">
+                        <a href="javascript:;" class="btn btn-default btn-sm sbold" ng-click="PrintReport()" style="min-width:100px !important;">
+                            <i class="fa fa-print"></i> Print
+                        </a>
+                    </div>-->
+                </div>
+                <div class="portlet-body-grid">
+                    <div class="tabbable-line">
+                        <ul class="nav nav-tabs ">
+                            <li class="active">
+                                <a data-target="#tab_1_1" data-toggle="tab" class="uppercase sbold"> Basic </a>
+                            </li>
+                            <li>
+                                <a data-target="#tab_1_2" data-toggle="tab" class="uppercase sbold"> Additional Fees </a>
+                            </li>
+                            <li>
+                                <a data-target="#tab_1_3" data-toggle="tab" class="uppercase sbold"> Mikrotik </a>
+                            </li>
+                            <li>
+                                <a data-target="#tab_1_4" data-toggle="tab" class="uppercase sbold"> QR Code </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <p />
+                            <div class="tab-pane active" id="tab_1_1">
+                                <form name="frm" novalidate>
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group" ng-class="{ 'has-error' : frm.CustomerName.$touched && frm.CustomerName.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Customer Name">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" id="txtFocus" placeholder="Name" name="CustomerName" ng-model="entity.CustomerName" maxlength="51" ng-maxlength="50" required>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user font-red"></i>
+                                                        </span>
+                                                    </div>
+                                                    <span class="help-block" style="display: block;" ng-if="frm.CustomerName.$error.required && frm.CustomerName.$touched">Name is required</span>
+                                                    <span class="help-block" ng-if="frm.CustomerName.$error.maxlength">50 Character Max</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group" ng-class="{ 'has-error' : frm.BillingAddress.$touched && frm.BillingAddress.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Billing Address" required>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" placeholder="Address" name="BillingAddress" ng-model="entity.BillingAddress" maxlength="51" ng-maxlength="50" required>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user font-red"></i>
+                                                        </span>
+                                                    </div>
+                                                    <span class="help-block" style="display: block;" ng-if="frm.BillingAddress.$error.required && frm.BillingAddress.$touched">Billing Address is required</span>
+                                                    <span class="help-block" ng-if="frm.BillingAddress.$error.maxlength">50 Character Max</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group" ng-class="{ 'has-error' : frm.MobileNo.$touched && frm.MobileNo.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Mobile No">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" placeholder="Mobile" name="MobileNo" ng-model="entity.MobileNo" maxlength="51" ng-maxlength="50" required>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user font-red"></i>
+                                                        </span>
+                                                    </div>
+                                                    <span class="help-block" style="display: block;" ng-if="frm.MobileNo.$error.required && frm.MobileNo.$touched">Mobile No is required</span>
+                                                    <span class="help-block" ng-if="frm.MobileNo.$error.maxlength">50 Character Max</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group" ng-class="{ 'has-error' : frm.EmailId.$touched && frm.EmailId.$invalid }" data-toggle="tooltip" data-placement="bottom" title="EmailId">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" placeholder="EmailId" name="EmailId" ng-model="entity.EmailId" maxlength="51" ng-maxlength="50" required>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user font-red"></i>
+                                                        </span>
+                                                    </div>
+                                                    <span class="help-block" style="display: block;" ng-if="frm.EmailId.$error.required && frm.EmailId.$touched">Email is required</span>
+                                                    <span class="help-block" ng-if="frm.EmailId.$error.maxlength">50 Character Max</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group" ng-class="{ 'has-error' : frm.Password.$touched && frm.Password.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Password">
+                                                    <div class="input-group">
+                                                        <input type="password" class="form-control" placeholder="Password" name="Password" ng-model="entity.Password" maxlength="51" ng-maxlength="50" required>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user font-red"></i>
+                                                        </span>
+                                                    </div>
+                                                    <span class="help-block" style="display: block;" ng-if="frm.Password.$error.required && frm.Password.$touched">Password is required</span>
+                                                    <span class="help-block" ng-if="frm.Password.$error.maxlength">50 Character Max</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group" ng-class="{ 'has-error' : frm.ConfPassword.$touched && frm.ConfPassword.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Confirm Password">
+                                                    <div class="input-group">
+                                                        <input type="Password" class="form-control" placeholder="Confirm Password" name="ConfPassword" ng-model="entity.Password" maxlength="51" ng-maxlength="50" required>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user font-red"></i>
+                                                        </span>
+                                                    </div>
+                                                    <span class="help-block" style="display: block;" ng-if="frm.ConfPassword.$error.required && frm.ConfPassword.$touched">Confirm Password is required</span>
+                                                    <span class="help-block" ng-if="frm.ConfPassword.$error.maxlength">50 Character Max</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group" ng-class="{ 'has-error' : frm.BillGenerationDay.$touched && frm.BillGenerationDay.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Bill Generation Day">
+                                                    <div class="input-group">
+                                                        <input type="number" class="form-control" placeholder="Bill Generation Date" name="BillGenerationDay" ng-model="entity.BillGenerationDay" maxlength="51" ng-maxlength="50" required>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user font-red"></i>
+                                                        </span>
+                                                    </div>
+                                                    <span class="help-block" style="display: block;" ng-if="frm.BillGenerationDay.$error.required && frm.BillGenerationDay.$touched">Bill Generation Day is required</span>
+                                                    <span class="help-block" ng-if="frm.BillGenerationDay.$error.maxlength">50 Character Max</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group" ng-class="{ 'has-error' : frm.BillDueInDay.$touched && frm.BillDueInDay.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Bill Due In Day">
+                                                    <div class="input-group">
+                                                        <input type="number" class="form-control" placeholder="Bill Due In Day" name="BillDueInDay" ng-model="entity.BillDueInDay" maxlength="51" ng-maxlength="50" required>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user font-red"></i>
+                                                        </span>
+                                                    </div>
+                                                    <span class="help-block" style="display: block;" ng-if="frm.BillDueInDay.$error.required && frm.BillDueInDay.$touched">Bill Due In Day is required</span>
+                                                    <span class="help-block" ng-if="frm.BillDueInDay.$error.maxlength">50 Character Max</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group" ng-class="{ 'has-error' : frm.Notification.$touched && frm.Notification.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Notification Type">
+                                                    <select class="bs-select form-control" ng-model="cmbNotification" name="Notification" style="width: 100%" required ng-options="Notification.NotificationTitle for Notification in notificationList track by Notification.Notification" ng-change="entity.Notification=cmbNotification.Notification">
+
+                                                        <option value="">---Select Notification Type---</option>
+                                                    </select>
+                                                    <span class="help-block" ng-if="frm.Notification.$error.required && frm.Notification.$touched">Notification Type is required</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group" ng-class="{ 'has-error' : frm.Remarks.$touched && frm.Remarks.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Remarks">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" placeholder="Remarks" name="Remarks" ng-model="entity.Remarks" maxlength="51" ng-maxlength="50" required>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user font-red"></i>
+                                                        </span>
+                                                    </div>
+                                                    <span class="help-block" style="display: block;" ng-if="frm.Remarks.$error.required && frm.Remarks.$touched">Remarks is required</span>
+                                                    <span class="help-block" ng-if="frm.Remarks.$error.maxlength">50 Character Max</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <div class="col-md-3">
+                                                            <label class="sbold" style="margin-top: 10px;">Status:</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="mt-radio-inline">
+                                                                <label class="mt-radio">
+                                                                    <input type="radio" name="optionsRadios" ng-value="true" ng-model="entity.IsActive"> Active
+                                                                    <span></span>
+                                                                </label>
+                                                                <label class="mt-radio">
+                                                                    <input type="radio" name="optionsRadios" ng-value="false" ng-model="entity.IsActive"> Inactive
+                                                                    <span></span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group" ng-class="{ 'has-error' : frm.Package.$touched && frm.Package.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Package">
+                                                        <select class="bs-select form-control" ng-model="cmbPackage" name="Package" style="width: 98%" required ng-options="Package.PackageName for Package in packageTypeList track by Package.PackageId" ng-change="entity.PackageId=cmbPackage.PackageId">
+                                                            <option value="">---Select Package---</option>
+                                                        </select>
+                                                        <span class="help-block" ng-if="frm.Package.$error.required && frm.Package.$touched">Package is required</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane" id="tab_1_2">
+                                <form name="frm" novalidate>
+                                    <table class="responstable table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="sbold text-center">#</th>
+                                                <th class="sbold text-center">Additional Fee</th>
+                                                <th class="sbold text-center">Amount</th>
+                                                <th class="sbold text-center">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="aDetail in additionalFeeList">
+                                                <td class="text-center"> {{$index + 1}} </td>
+                                                <td class="text-center"> {{aDetail.AdditionalFeeName}} </td>
+                                                <td class="text-center">
+                                                    <div class="form-group" ng-class="{ 'has-error' : frm.Amount.$touched && frm.Amount.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Amount">
+                                                        <div class="input-group">
+                                                            <input type="number" class="form-control" placeholder="Amount" name="Amount" ng-model="aDetail.Amount" maxlength="51" ng-maxlength="50" required>
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-user font-red"></i>
+                                                            </span>
+                                                        </div>
+                                                        <span class="help-block" style="display: block;" ng-if="frm.Amount.$error.required && frm.Amount.$touched">Amount is required</span>
+                                                        <span class="help-block" ng-if="frm.Amount.$error.maxlength">50 Character Max</span>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <md-checkbox aria-label="checkbox" class="mt-checkbox-grid md-primary" ng-click="addAdditionalFee(aDetail, $index)" />
+                                                </td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--<div class="row" style="margin-bottom: 10px">
+                                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                            <select class="bs-select form-control" ng-model="cmbAdditionalFee" name="Country" style="width: 100%" ng-options="additionalFee.AdditionalFeeName for additionalFee in additionalFeeList track by additionalFee.AdditionalFeeId" ng-change="detailList.AdditionalFeeId=cmbAdditionalFee.AdditionalFeeId;detailList.AdditionalFeeName=cmbAdditionalFee.AdditionalFeeName">
+                                                <option value="">-- Select Additional Fee --</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                                            <button type="button" class="btn btn-md btn-info" style="width: 100%" ng-click="addDetail()">Add</button>
+                                        </div>
+                                    </div>
+                                    <table class="responstable table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="sbold text-center">#</th>
+                                                <th class="sbold text-center">Player</th>
+                                                <th class="sbold text-center">Country</th>
+                                                <th class="sbold text-center">Active</th>
+                                                <th class="sbold text-center">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="aDetail in detailList">
+                                                <td class="text-center"> {{$index + 1}} </td>
+                                                <td class="text-center"> {{aDetail.AdditionalFeeName}} </td>
+                                                <td class="text-center">
+                                                    <div class="form-group" ng-class="{ 'has-error' : frm.Amount.$touched && frm.Amount.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Amount">
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" placeholder="Amount" name="Amount" ng-model="detailList.Amount" maxlength="51" ng-maxlength="50" required>
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-user font-red"></i>
+                                                            </span>
+                                                        </div>
+                                                        <span class="help-block" style="display: block;" ng-if="frm.Amount.$error.required && frm.Amount.$touched">Amount is required</span>
+                                                        <span class="help-block" ng-if="frm.Amount.$error.maxlength">50 Character Max</span>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <md-checkbox aria-label="checkbox" ng-model="aDetail.IsActive" class="mt-checkbox-grid md-primary" />
+                                                </td>
+                                                <td class="text-center">
+                                                    <a class="btn red btn-sm btn-outline sbold uppercase" ng-click="detailDelete(aDetail, $index)">
+                                                        <i class="fa fa-remove"></i> Remove
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>-->
+                                </form>
+                            </div>
+                            <div class="tab-pane" id="tab_1_3">
+                                <form name="frm" novalidate>
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group" ng-class="{ 'has-error' : frm.UserId.$touched && frm.UserId.$invalid }" data-toggle="tooltip" data-placement="bottom" title="MK User Id">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" id="txtFocus" placeholder="MK UserId" name="UserId" ng-model="entity.MKUserId" maxlength="51" ng-maxlength="50" required>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user font-red"></i>
+                                                        </span>
+                                                    </div>
+                                                    <span class="help-block" style="display: block;" ng-if="frm.UserId.$error.required && frm.UserId.$touched">MK User Id is required</span>
+                                                    <span class="help-block" ng-if="frm.UserId.$error.maxlength">50 Character Max</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane" id="tab_1_4">
+                                <form name="frm" novalidate>
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group" ng-class="{ 'has-error' : frm.MobileNo.$touched && frm.MobileNo.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Mobile No">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" placeholder="Mobile" name="MobileNo" ng-model="entity.MobileNo" maxlength="51" ng-maxlength="50" required>
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user font-red"></i>
+                                                        </span>
+                                                    </div>
+                                                    <span class="help-block" style="display: block;" ng-if="frm.MobileNo.$error.required && frm.MobileNo.$touched">Mobile No is required</span>
+                                                    <span class="help-block" ng-if="frm.MobileNo.$error.maxlength">50 Character Max</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 5px;">
+                                            <img src={{path}} />
+
+                                            <!--<img src="../../Images/QrCode.jpg" />-->
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-actions noborder pull-right" style="margin-right: 7px; margin-top: 10px" ng-show="!SaOrReview.FlagSelfAppraisal" block-ui="rvwSaveBlock">
+                                                <button type="button" class="btn btn-lg purple box-shadow--8dp" ng-click="saveImage(entity.MobileNo)">QR Code</button><!--LockSaOrReview()-->
+                                            </div>
+                                        </div>
+                                        </br>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="row">
+        <div class="form-actions noborder pull-right" style="margin-right: 7px; margin-top: 10px" ng-show="!SaOrReview.FlagSelfAppraisal" block-ui="rvwSaveBlock">
+            <button type="button" class="btn btn-lg purple box-shadow--8dp" ng-click="post('save')">Lock & Submit</button><!--LockSaOrReview()-->
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="commentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" style="width:900px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title sbold">{{ModalTitle}}</h4>
+            </div>
+            <div class="modal-body">
+                {{ModalQuestion}}
+                <p />
+                <textarea class="form-control" rows="10" maxlength="1000" ng-model="ModalComment" placeholder="Comment (maximum 1000 characters)" ng-disabled="SaOrReview.FlagSelfAppraisal" />
+            </div>
+            <div class="modal-footer" ng-show="!SaOrReview.FlagSelfAppraisal">
+                <button type="button" class="btn green" ng-click="SaveComment()">Save & Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="commentModalManager" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" style="width:900px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title sbold">{{ModalTitleManager}}</h4>
+            </div>
+            <div class="modal-body">
+                {{ModalQuestionManager}}
+                <p />
+                <textarea class="form-control" rows="10" maxlength="1000" ng-model="ModalCommentManager" placeholder="Comment (maximum 1000 characters)" ng-disabled="true" />
+            </div>
+            <!--<div class="modal-footer" ng-show="SaOrReview.RatingType === 'Review' && !SaOrReview.FlagReview">
+                <button type="button" class="btn green" ng-click="SaveCommentManager()">Save & Close</button>
+            </div>-->
+        </div>
+    </div>
+</div>
+<p />
+<div class="col-md-12" style="padding:0; margin-top: 15px">
+    <div class="panel panel-info">
+        <div class="panel-heading" style="background-color: #36C6D3 !important; border-color: #5CD1DB !important; padding: 5px 15px !important;">
+            <div class="row">
+                <div class="col-md-2">
+                    <h3 class="panel-title sbold" style="color: #FFF !important; margin-top: 10px !important"><i class="fa fa-users sbold"></i>&nbsp;Customer List</h3>
+                </div>
+                <!--<div class="col-md-1">
+                    <a class="btn btn-default" style="margin-top: 2px; margin-left: -23px;" data-toggle="modal" data-target="#empNewModal" ng-click="employeeNew = {}; employeeNew.Flag_AdminUser = false; employeeNew.Flag_PeopleLeader = false;">
+                        Add
+                        <i class="fa fa-user"></i>
+                    </a>
+                </div>-->
+                <div class="col-md-3 pull-right">
+                    <div class="row">
+                        <!--<div class="col-md-4" style="padding-right: 0px;">
+                            <select class="bs-select form-control input-small" id="txtSearchBy" style="width: 100% !important; background-color: #F1F4F7; border: 1px solid #fff; color: #333 !important;">
+                                <option>Employee Name</option>
+                                <option>Employee No.</option>
+                                <option>Manager Name</option>
+                                <option>Manager No.</option>
+                            </select>
+                        </div>-->
+                        <div class="col-md-12" style="padding-left: 5px;">
+                            <div class="sidebar-search-wrapper">
+                                <form class="sidebar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Customer ID" id="txtSearchText" ng-model="searchText" ng-init="searchText=''" ng-keypress="($event.keyCode == 13 && searchText != '')  ? searchCustomer(true) : null" style="background-color: #F1F4F7; border: 1px solid #fff; color: #333 !important;" />
+                                        <span class="input-group-btn">
+                                            <a class="btn btn-default" style="border: 1px solid #fff; margin-left: 1px;" ng-click="searchCustomer(true)" ng-disabled="searchText === null || searchText ===''">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </span>
+                                        <span class="input-group-btn">
+                                            <a class="btn btn-default" style="margin-left: 5px;" ng-click="searchCustomer(false)">
+                                                Reset
+                                                <i class="fa fa-refresh"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body custom-panel-body">
+            <div class="tbl-outer">
+                <table class="responstable table-hover" block-ui="lsitBlock">
+                    <tbody>
+                        <tr class="t-head" style="font-size: 14px !important">
+                            <th class="sbold">#</th>
+                            <th class="sbold text-center" data-th="Details"><span>ID</span></th>
+                            <th class="sbold text-center" data-th="Details"><span>Customer Name</span></th>
+                            <th class="sbold text-center">Package</th>
+                            <th class="sbold text-center">Billing Address</th>
+                            <th class="sbold text-center">Mobile No</th>
+                            <th class="sbold text-center">Email</th>
+                            <th class="sbold text-center">Bill Generation Day</th>
+                            <th class="sbold text-center">Bill Due In Day</th>
+                            <!--<th class="sbold text-center">Notification</th>-->
+                            <th class="sbold text-center">Lasy Pay On</th>
+                            <th class="sbold text-center">Status</th>
+
+                        </tr>
+                        <tr dir-paginate="item in entityListPaged | filter:q | itemsPerPage: PerPage" current-page="currentPage" total-items="total_count" ng-click="rowClick(item)" ng-class="{ 'inActive' : !item.IsActive}">
+                            <td class="text-center">{{$index + ((currentPage-1)*PerPage) + 1}}</td>
+                            <td class="text-center"> {{item.CustomerId}} </td>
+                            <td class="text-center"> {{item.CustomerName}} </td>
+                            <td class="text-center"> {{item.PackageName}} </td>
+                            <td class="text-center"> {{item.BillingAddress}} </td>
+                            <td class="text-center"> {{item.MobileNo}} </td>
+                            <td class="text-center"> {{item.EmailId}} </td>
+                            <td class="text-center"> {{item.BillGenerationDay}} </td>
+                            <td class="text-center"> {{item.BillDueInDay}} </td>
+                            <!--<td class="text-center"> {{item.Notification}} </td>-->
+                            <td class="text-center"> {{item.LasyPayDate}} </td>
+                            <td class="text-center"> {{item.IsActive ? 'Active' : 'Inactive' }} </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row pagination-control" ng-show="total_count>PerPage">
+                    <span style="display: inline-block; vertical-align: middle; margin-top: -7px; font-weight: bold;">
+                        <dir-pagination-controls max-size="8"
+                                                 direction-links="true"
+                                                 boundary-links="true"
+                                                 on-page-change="GetPaged(newPageNumber)" style="text-align:center; margin-top:0px !important">
+                        </dir-pagination-controls>
+                    </span>
+                </div>
+                <div class="row pagination-footer">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <input class="input-pagesize" type="number" min="1" max="100" ng-model="PerPage"> <span>Records Per Page</span>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <span class="pull-right">Showing {{((currentPage-1)*PerPage)+1}} to {{((currentPage-1)*PerPage)+entityListPaged.length}} of {{total_count}} Records</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

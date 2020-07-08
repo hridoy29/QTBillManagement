@@ -1,0 +1,147 @@
+﻿<p />
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-bar-chart"></i>
+            <span>Salary</span>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>ISP Management</span>
+        </li>
+    </ul>
+</div>
+<p />
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-info">
+            <div class="panel-heading" style="background-color: #36C6D3 !important; border-color: #5CD1DB !important; padding: 5px 15px !important;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="panel-title sbold" style="color: #FFF !important; padding: 5px 0;"><i class="fa fa-list sbold"></i>&nbsp;Salary</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <form name="frm">
+                        <div class="col-md-3">
+                            <div class="form-group" style="padding:5px 15px !important" ng-class="{ 'has-error' : frm.Month.$touched && frm.Month.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Month">
+                                <select class="bs-select form-control" name="Month" ng-model="entity.Month" required>
+                                    <option value="">--Month--</option>
+                                    <option value="2020">January</option>
+                                    <option value="2021">February</option>
+                                    <option value="2022">March</option>
+                                </select>
+                                <span class="help-block" style="display: block;" ng-if="frm.Month.$error.required && frm.Month.$touched">Month is required</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group" ng-class="{ 'has-error' : frm.Year.$touched && frm.Year.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Year">
+                                <select class="bs-select form-control" style="width:100%;" name="Year" ng-model="entity.Year" required>
+                                    <option value="">--Year--</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                </select>
+                                <span class="help-block" style="display: block;" ng-if="frm.Year.$error.required && frm.Year.$touched">Date is required</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group" ng-class="{ 'has-error' : frm.Date.$touched && frm.Date.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Date">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-model="entity.Date" placeholder="Date" id="dtDate" name="Date" required readonly />
+                                    <span class="input-group-btn">
+                                        <button class="btn default" type="button" tabindex="-1" ng-click="openCalendar('fromDate')">
+                                            <i class="fa fa-calendar"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                                <span class="help-block" style="display: block;" ng-if="frm.Date.$error.required && frm.Date.$touched">Date is required</span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-lg btn-success" ng-click="load()">Load</button>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading" style="background-color: #36C6D3 !important; border-color: #5CD1DB !important; padding: 5px 15px !important;">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h3 class="panel-title sbold" style="color: #FFF !important; padding: 5px 0;"><i class="fa fa-list sbold"></i>&nbsp;Paid</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group" style="padding: 5px 15px !important;">
+                                        <div class="table-outer">
+                                            <table class="responstable table-hover">
+                                                <tbody>
+                                                    <tr class="t-head" style="font-size: 14px !important">
+                                                        <th class="sbold text-center" style="width:30%;">Employee</th>
+                                                        <th class="sbold text-center" style="width:30%;">Pay Date</th>
+                                                        <th class="sbold text-center" style="width:30%;">Amount</th>
+                                                    </tr>
+                                                    <tr></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading" style="background-color: #36C6D3 !important; border-color: #5CD1DB !important; padding: 5px 15px !important;">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h3 class="panel-title sbold" style="color: #FFF !important; padding: 5px 0;"><i class="fa fa-list sbold"></i>&nbsp;Due</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group" style="padding: 5px 15px !important;">
+                                        <div class="table-outer">
+                                            <table class="responstable table-hover">
+                                                <tbody>
+                                                    <tr class="t-head" style="font-size: 14px !important">
+                                                        <th class="sbold text-center" style="width:10%;">Select</th>
+                                                        <th class="sbold text-center" style="width:45%;">Employee</th>
+                                                        <th class="sbold text-center" style="width:45%;">Amount</th>
+                                                    </tr>
+                                                    <tr  dir-paginate="item in entityListPaged | filter:q | itemsPerPage: PerPage" current-page="currentPage" total-items="total_count">
+                                                        <td class="text-center"> {{item.EmployeeName}} </td>
+                                                        <td class="text-center"> {{item.EmployeeName}} </td>
+                                                        <td class="text-center"> {{item.EmployeeSalary}} </td>
+                                                    </tr>
+                                                    <tr>
+                                                       
+                                                        <td class="text-center">
+                                                            <md-checkbox aria-label="checkbox" ng-model="item.IsActive" class="mt-checkbox-grid md-primary" />
+                                                        </td>
+                                                         
+                                                        <td></td>
+                                                        <td>
+                                                            Total:
+                                                        </td>
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>

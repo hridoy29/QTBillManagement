@@ -1,0 +1,48 @@
+﻿
+
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group" ng-class="{ 'has-error' : frm.FromDate.$touched && frm.FromDate.$invalid }" data-toggle="tooltip" data-placement="bottom" title="From Date">
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="entity.FromDate" id="dtFromDate" name="FromDate" required readonly />
+                <span class="input-group-btn">
+                    <button class="btn default" type="button" tabindex="-1" ng-click="openCalendar('fromDate')">
+                        <i class="fa fa-calendar"></i>
+                    </button>
+                </span>
+            </div>
+            <span class="help-block" style="display: block;" ng-if="frm.FromDate.$error.required && frm.FromDate.$touched">Match Date is required</span>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group" ng-class="{ 'has-error' : frm.ToDate.$touched && frm.ToDate.$invalid }" data-toggle="tooltip" data-placement="bottom" title="To Date">
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="entity.ToDate" id="dtToDate" name="ToDate" required readonly />
+                <span class="input-group-btn">
+                    <button class="btn default" type="button" tabindex="-1" ng-click="openCalendar('toDate')">
+                        <i class="fa fa-calendar"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <span class="help-block" style="display: block;" ng-if="frm.ToDate.$error.required && frm.ToDate.$touched">Match Date is required</span>
+    </div>
+
+
+    <div class="col-md-4">
+
+
+      
+        <form name="frm" novalidate>
+
+            <div class="form-actions" style="margin-top: -15px;" block-ui="entryBlock">
+                <button type="submit" class="btn btn-lg btn-success box-shadow--8dp" style="min-width:90px !important; margin-right: 10px; margin-bottom: 5px" ng-disabled="frm.$invalid" ng-click="post()">Show Report</button>
+            </div>
+        </form>
+
+
+    </div>
+</div>
+<!--<pre>{{entity | json}}</pre>-->
+<!--</div><a href="~/Reports/Report.aspx">View Report</a>-->

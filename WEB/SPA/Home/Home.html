@@ -1,0 +1,139 @@
+﻿<p />
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#/Home"><span>Home</span></a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>ISP Management</span>
+        </li>
+    </ul>
+</div>
+<p />
+<div block-ui="dashboardBlock">
+    <p />
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a class="dashboard-stat dashboard-stat-v2 blue-madison" ng-click="showCustomers('Total ')">
+                <div class="visual">
+                    <i class="fa fa-users"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <label></label>
+                        <span class="mycounter">{{entityList.length}}</span>
+                    </div>
+                    <div class="desc"> Total Customer </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a class="dashboard-stat dashboard-stat-v2 green-haze" ng-click="showCustomers('Active ')">
+                <div class="visual">
+                    <i class="fa fa-edit"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <label></label>
+                        <span class="mycounter">{{entityListActive.length}}</span>
+                    </div>
+                    <div class="desc">Active Customer</div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a class="dashboard-stat dashboard-stat-v2 red" ng-click="showCustomers('Inactive ')">
+                <div class="visual">
+                    <i class="fa fa-edit"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <label></label>
+                        <span class="mycounter">{{entityListInactive.length}}</span>
+                    </div>
+                    <div class="desc"> Inactive Customer </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a class="dashboard-stat dashboard-stat-v2 yellow" ng-click="showCustomers('Due ')">
+                <div class="visual">
+                    <i class="fa fa-star"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <label></label>
+                        <span class="mycounter">{{entityList.length}}</span>
+                    </div>
+                    <div class="desc"> Due Customer </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<p />
+<div class="col-md-12" style="padding:0; margin-top: 15px" ng-show="showList">
+    <div class="panel panel-info">
+        <div class="panel-heading" style="background-color: #36C6D3 !important; border-color: #5CD1DB !important; padding: 5px 15px !important;">
+            <div class="row">
+                <div class="col-md-2">
+                    <h3 class="panel-title sbold" style="color: #FFF !important; margin-top: 7px !important; margin-bottom: 7px !important"><i class="fa fa-users sbold"></i>&nbsp;{{listType}} Customer List</h3>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body custom-panel-body" style="padding-bottom: 15px !important">
+            <div class="tbl-outer">
+                <table class="responstable table-hover" block-ui="lsitBlock">
+                    <tbody>
+                        <tr class="t-head" style="font-size: 14px !important">
+                            <th class="sbold">#</th>
+                            <th class="sbold text-center" data-th="Details"><span>ID</span></th>
+                            <th class="sbold text-center" data-th="Details"><span>Customer Name</span></th>
+                            <th class="sbold text-center">Package</th>
+                            <th class="sbold text-center">Billing Address</th>
+                            <th class="sbold text-center">Mobile No</th>
+                            <th class="sbold text-center">Email</th>
+                            <th class="sbold text-center">Bill Generation Day</th>
+                            <th class="sbold text-center">Bill Due In Day</th>
+                            <th class="sbold text-center">Lasy Pay On</th>
+                            <th class="sbold text-center">Status</th>
+
+                        </tr>
+                        <tr ng-repeat="item in entityListSearch" ng-class="{ 'inActive' : !item.IsActive}">
+                            <td class="text-center">{{$index + 1}}</td>
+                            <td class="text-center"> {{item.CustomerId}} </td>
+                            <td class="text-center"> {{item.CustomerName}} </td>
+                            <td class="text-center"> {{item.PackageName}} </td>
+                            <td class="text-center"> {{item.BillingAddress}} </td>
+                            <td class="text-center"> {{item.MobileNo}} </td>
+                            <td class="text-center"> {{item.EmailId}} </td>
+                            <td class="text-center"> {{item.BillGenerationDay}} </td>
+                            <td class="text-center"> {{item.BillDueInDay}} </td>
+                            <td class="text-center"> {{item.LasyPayDate}} </td>
+                            <td class="text-center"> {{item.IsActive ? 'Active' : 'Inactive' }} </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--<div class="row pagination-control" ng-show="total_count>PerPage">
+                    <span style="display: inline-block; vertical-align: middle; margin-top: -7px; font-weight: bold;">
+                        <dir-pagination-controls max-size="8"
+                                                 direction-links="true"
+                                                 boundary-links="true"
+                                                 on-page-change="GetPaged(newPageNumber)" style="text-align:center; margin-top:0px !important">
+                        </dir-pagination-controls>
+                    </span>
+                </div>
+                <div class="row pagination-footer">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <input class="input-pagesize" type="number" min="1" max="100" ng-model="PerPage"> <span>Records Per Page</span>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <span class="pull-right">Showing {{((currentPage-1)*PerPage)+1}} to {{((currentPage-1)*PerPage)+entityListPaged.length}} of {{total_count}} Records</span>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
